@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import ClassificationRealFunctionsBaireClassificationCanonicalLaneLean.BaireRealFunctions
+import ClassificationRealFunctionsBaireClassificationCanonicalLaneLean.BridgeLemmas
+import ClassificationRealFunctionsBaireClassificationCanonicalLaneLean.GateLemmas
+
+namespace HautevilleHouse
+namespace ClassificationRealFunctionsBaireClassificationCanonicalLaneLean
+
+def ConstrainedBaireClassificationClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_baire_classification_endgame (A : AdmissibleClass) :
+    ConstrainedBaireClassificationClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ClassificationRealFunctionsBaireClassificationCanonicalLaneLean
+end HautevilleHouse
